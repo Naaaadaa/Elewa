@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-paper-sunk text-ink font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-[-0.01em];
+  }
+
+  /* Slim scrollbars inside the phone frame */
+  .scroll-area::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scroll-area::-webkit-scrollbar-thumb {
+    @apply bg-paper-line rounded-full;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3
+           font-medium text-[15px] transition-colors
+           disabled:opacity-45 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-forest-500 text-white hover:bg-forest-600 active:bg-forest-700;
+  }
+  .btn-ghost {
+    @apply btn bg-paper-raised text-ink border border-paper-line hover:bg-paper-sunk;
+  }
+  .btn-amber {
+    @apply btn bg-amber-300 text-ink hover:bg-amber-400;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-paper-line bg-paper-raised px-3.5 py-3
+           text-[15px] text-ink placeholder:text-ink-faint
+           focus:border-forest-400 focus:outline-none focus:ring-2 focus:ring-forest-100;
+  }
+
+  .card {
+    @apply rounded-2xl border border-paper-line bg-paper-raised shadow-card;
+  }
+
+  .label {
+    @apply block text-[11px] font-semibold uppercase tracking-[0.07em] text-ink-mute;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1
+           text-[11px] font-semibold tracking-[0.02em];
+  }
+}
